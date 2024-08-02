@@ -1,0 +1,22 @@
+[video_client_api]
+port = 6000
+
+[shop_event]
+emit = true
+broker = "kafka:9092"
+
+[analyzers]
+enable = true
+
+[analyzers.action]
+model_path = "models/action_recognition_movinet_a1_stream.pth"
+min_confidence = 0.5
+
+[analyzers.item]
+model_path = "models/item_detection_yolov8n.pt"
+min_confidence = 0.4
+min_hand_iou = 0.03
+
+[analyzers.hand]
+model_path = "models/hand_detection_yolov8n.pt"
+min_confidence = 0.7
